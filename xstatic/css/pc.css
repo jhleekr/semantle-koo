@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --menu-position: 0px;
+}
+
+body {
+    margin: 0px;
+}
+
+#wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #78D6C6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    width: calc(100% - 40px);
+    z-index: 10;
+}
+
+#bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(0deg, #F5FCCD, #ffffff 50%);
+    z-index: -30;
+}
+
+#menu-outer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 20;
+    display: none;
+}
+
+#menu {
+    position: fixed;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    z-index: 21;
+    background-color: #f8ecec;
+}
+
+#menu-inner {
+    width: calc(100% - 60px);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+#menu-header {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: static;
+    width: calc(100% - 40px);
+}
+
+#outer {
+    width: calc(100% - 20px);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media screen and (min-width: 600px) {
+    #outer {
+        width: 580px;
+    }
+}
+
+.mont {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ibm {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.cent {
+    text-align: center;
+}
+
+.left {
+    width: calc(100% - 40px);
+    text-align: start;
+}
+
+.rght {
+    width: calc(100% - 40px);
+    text-align: end;
+}
+
+.big {
+    font-size: 30px;
+}
+
+.med {
+    font-size: 20px;
+}
+
+.sml {
+    font-size: 15px;
+}
+
+.xsml {
+    font-size: 12px;
+}
+
+.red {
+    color: red;
+}
+
+.nl {
+    width: 100%;
+    border-top: 1px solid #12486B;
+}
+
+.twoi {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.padt {
+    padding-top: 10px;
+}
+
+.pad {
+    padding: 10px;
+}
+
+rect.bttn {
+    stroke: #fff;
+    fill: #fff;
+    fill-opacity: 0;
+    stroke-opacity: 0;
+}
+
+.menuitm {
+    margin: 5px;
+    width: 70%;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 15px;
+    padding: 2px;
+    outline: none;
+    background-color: rgb(233, 233, 233);
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+}
+
+div[class~=leftx] {
+    padding-left: 20px;
+    width: calc(100% - 40px);
+}
+
+.btn {
+    width: calc(100% - 8px);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 15px;
+    background-color: #78D6C6;
+    padding: 2px;
+    margin-left: 8px;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.btn2 {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 15px;
+    background-color: #78D6C6;
+    padding: 2px;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.btn3 {
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    background-color: #78D6C6;
+    padding: 2px;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#guessbox {
+    width: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+}
+
+#gubox {
+    width: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+
+.bottom-banner {
+    width: calc(100% - 8px);
+    font-size: 0;
+    text-decoration: none;
+    background: url(https://semantle-ko.newsjel.ly/assets/banner-image.png) center no-repeat no-repeat;
+    background-size: cover;
+    margin-left: 8px;
+}
+
+#guesses {
+    width: 100%;
+}
+
+#win {
+    width: calc(100% - 80px);
+    margin: 10px;
+    padding: 20px;
+    background-color: #F5FCCD;
+    border: 1px solid #419197;
+    border-radius: 10px;
+}
+
+.percentile,
+.progress-container,
+.progress-bar {
+  display: inline-block;
+}
+
+.percentile {
+  text-align: right;
+  width: 5em;
+}
+
+.progress-container {
+  background-color: #eeeeee;
+  width: 10em;
+}
+
+.progress-bar {
+  background-color: #78D6C6;
+}
+
+.weirdWord {
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.weirdWord .tooltiptext {
+  visibility: hidden;
+  width: 20em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 0.3ex 0;
+  border-radius: 1ex;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+}
+
+.subtext {
+  color: #666666;
+}
+
+ul {
+  margin-top: -2.59em;
+  padding-inline-start: 3em;
+}
+
+.weirdWord:hover .tooltiptext {
+  visibility: visible;
+}

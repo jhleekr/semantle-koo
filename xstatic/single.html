@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/static/css/pc.css">
+    <title>꼬맨틀 - 단어 유사도 추측 게임</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="꼬맨틀 - 단어 유사도 추측 게임">
+    <meta property="og:description" content="단어를 맞혀보세요. 단어를 입력하면 정답 단어와의 유사도를 보여줍니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <script src="/static/js/single.js"></script>
+    <div id="header">
+        <div class="mont big"><span class="bold">Semantle</span> KO</div>
+        <div></div>
+    </div>
+    <div id="bg"></div>
+
+    <div class="padt"></div>
+    <div class="padt"></div>
+    <div class="padt"></div>
+    <div class="padt"></div>
+    <div class="padt"></div>
+
+    <div id="wrap">
+        <div id="outer">
+            <div class="padt"></div>
+            <div class="padt"></div>
+    
+            <div class="ibm sml left">
+                싱글 플레이 모드
+            </div>
+            <div class="ibm big left">
+                꼬맨틀 - 단어 유사도 추측 게임
+            </div>
+            <div class="padt"></div>
+            <div id="similarity-story" class="ibm sml left">
+            </div>
+
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="ibm med left leftx">
+                추측할 단어를 입력하세요
+            </div>
+            <div class="padt"></div>
+            <div id="guessbox">
+                <input id="stxt" type="text" />
+                <div id="sbtn" class="ibm sml btn">
+                    추측하기
+                </div>
+            </div>
+
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div id="win" class="ibm sml" style="display: none;">
+                <!--<br>정답 단어와 비슷한, <a>상위 1,000개의 단어</a>를 확인해보세요.-->
+            </div>
+            <div id="error" class="ibm sml left red">
+            </div>
+            <div class="padt"></div>
+            <table id="guesses" class="ibm">
+            </table>
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="padt"></div>
+
+            <div id="gubox">
+                <div id="gubtn" class="ibm sml btn2">
+                    포기하기
+                </div>
+                <a class="bottom-banner"
+                    href="https://newsjel.ly/archives/newsjelly-report/data-storytelling/14842?utm_source=semantle_ko&utm_medium=bottom_banner"
+                    target="_blank">정답을 모르겠다면? 꼬맨틀 공략집</a>
+            </div>
+
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div id="sess" class="rght ibm sml">현재 세션 ID: </div>
+            <div class="padt"></div>
+            <div class="nl"></div>
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="ibm sml">
+                본 웹사이트는 David Turner의 <a href="https://semantle.novalis.org">Semantle</a>과 Johannes Gätjen의
+                <a href="http://semantlich.johannesgaetjen.de">Semantlich</a>를 바탕으로
+                데이터 시각화 전문기업 <a href="https://newsjel.ly/?utm_source=semantle_ko&amp;utm_medium=footer_link" target="_blank">뉴스젤리</a>가 
+                만든 <a href="https://semantle-ko.newsjel.ly/">꼬맨틀</a>을 기반으로 제작되었습니다.
+            </div>
+            <div class="padt"></div>
+            <div class="padt"></div>
+            <div class="rght mont med padt">Semantle-KO</div>
+            <div class="rght mont sml">Developed by J. H. Lee</div>
+            <div class="padt"></div>
+        </div>
+    </div>
+</body>
+
+</html>
