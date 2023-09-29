@@ -50,7 +50,8 @@ function endGame(won) {
     } else {
         response = `${guesses.length - 1}번째 추측에서 포기했습니다!`;
     }
-    response += '<div class="padt"></div><div class="ibm sml btn3" onclick="window.location.href='+"'/static/select.html'"+';">메인 화면으로</div>';
+    response += `<br>정답 단어와 비슷한, <a href="/static/near1k.html?s=${wsess}" target="_blank">상위 1,000개의 단어</a>를 확인해보세요.
+        <div class="padt"></div><div class="ibm sml btn3" onclick="window.location.href='/static/select.html';">메인 화면으로</div>`;
     $('#win').innerHTML = response;
     $('#win').style.display = "block";
 }
