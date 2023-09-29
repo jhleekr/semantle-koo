@@ -32,9 +32,9 @@ def dump_nearest(puzzle_num: int, word: str, words: List[str], mat: array, k: in
 
 
 def get_nearest(puzzle_num: int, word: str, words: List[str], mat: array) -> Dict[str, Tuple[str, float]]:
-    print(f"getting nearest words for {puzzle_num}")
     try:
         with open(f'data/near/{puzzle_num}.dat', 'rb') as f:
             return pickle.load(f)
     except FileNotFoundError:
+        print(f"generating nearest words for {puzzle_num}")
         return dump_nearest(puzzle_num, word, words, mat)

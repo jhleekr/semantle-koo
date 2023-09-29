@@ -13,7 +13,7 @@ class Data(Base):
 
     sid = Column(String(8), primary_key=True, index=True)
     timestamp = Column(DateTime(timezone=True))
-    data = Column(String(5000))
+    data = Column(String(100))
 
 
 def d_new(db: Session):

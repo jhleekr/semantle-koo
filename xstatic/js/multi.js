@@ -6,6 +6,15 @@ let wsess = "";
 let guessed = new Set();
 let similarityStory = null;
 
+function getUrlParams() {
+	var params = {};
+	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) {
+		params[key] = value;
+	});
+	return params;
+}
+let params = getUrlParams();
+
 function $(id) {
     if (id.charAt(0) !== '#') return false;
     return document.getElementById(id.substring(1));
@@ -41,7 +50,7 @@ function endGame(won) {
     } else {
         response = `${guesses.length - 1}번째 추측에서 포기했습니다!`;
     }
-    response += '<div class="padt"></div><div class="ibm sml btn3" onclick="window.location.href='+"'/static/single.html'"+';">다시 하기</div>';
+    response += '<div class="padt"></div><div class="ibm sml btn3" onclick="window.location.href='+"'/static/select.html'"+';">메인 화면으로</div>';
     $('#win').innerHTML = response;
     $('#win').style.display = "block";
 }
@@ -150,19 +159,8 @@ function init() {
             submit();
         }
     });
-    const xhr = new XMLHttpRequest;
-    xhr.onreadystatechange = function(){
-        if (this.status == 200 && this.readyState == this.DONE) {
-            var res = JSON.parse(this.responseText);
-            wsess = res.sess;
-            $('#sess').innerText = "현재 세션 ID: "+wsess;
-            getSimilarityStory();
-        } else if (this.status != 200 && this.readyState == this.DONE) {
-            alert("오류가 발생했습니다.");
-        }
-    };
-    xhr.open("GET", "/start");
-    xhr.send();
+    $('#sess').innerText = "현재 세션 ID: "+wsess;
+    getSimilarityStory();
     $('#gubtn').addEventListener('click', function(event) {
         if (guessCount && !gameOver) {
             if (confirm("정말로 포기하시겠습니까?")) {
@@ -194,5 +192,25 @@ function init() {
 };
 
 window.onload = () => {
-    init();   
+    if ('s' in params) {
+        const xhr = new XMLHttpRequest;
+        xhr.onreadystatechange = function(){
+            if (this.status == 200 && this.readyState == this.DONE) {
+                var res = JSON.parse(this.responseText);
+                wsess = res.sess;
+                init();
+            } else if (this.status != 200 && this.readyState == this.DONE) {
+                alert('세션 ID가 잘못되었습니다. 메인 페이지로 이동합니다.');
+                window.location.href="/static/select.html";
+                return;
+            }
+        };
+        xhr.open("GET", "/check");
+        xhr.setRequestHeader("word-sess", params['s']);
+        xhr.send();
+    } else {
+        alert('세션 ID가 잘못되었습니다. 메인 페이지로 이동합니다.');
+        window.location.href="/static/select.html";
+        return;
+    }
 }
