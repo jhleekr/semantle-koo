@@ -19,11 +19,12 @@ body {
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: #78D6C6;
+    background-color: #78D6C690;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    -webkit-user-select: none;
+    user-select: none;
     position: fixed;
     width: calc(100% - 40px);
     z-index: 10;
@@ -77,20 +78,24 @@ body {
 }
 
 #outer {
-    width: calc(100% - 20px);
+    width: calc(100% - 60px);
     padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 @media screen and (min-width: 600px) {
     #outer {
-        width: 580px;
+        width: 540px;
     }
 }
 
 .mont {
     font-family: 'Montserrat', sans-serif;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .ibm {
