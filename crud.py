@@ -18,6 +18,8 @@ class Data(Base):
 
 def d_new(db: Session):
     sid = hashlib.sha256(("!"+str(datetime.now(tz=KST).timestamp())).encode('utf-8')).hexdigest()[:8]
+    while d_get(db, sid):
+        sid = hashlib.sha256(("!"+str(datetime.now(tz=KST).timestamp())).encode('utf-8')).hexdigest()[:8]
     db_item = Data(sid=sid, timestamp=datetime.now(tz=KST), data="{}")
     db.add(db_item)
     db.commit()

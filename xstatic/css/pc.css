@@ -248,7 +248,7 @@ div[class~=leftx] {
     width: calc(100% - 8px);
     font-size: 0;
     text-decoration: none;
-    background: url(https://semantle-ko.newsjel.ly/assets/banner-image.png) center no-repeat no-repeat;
+    background: url(https://semantle-ko.newsjel.ly/static/banner-image.png) center no-repeat no-repeat;
     background-size: cover;
     margin-left: 8px;
 }

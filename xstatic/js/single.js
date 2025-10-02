@@ -146,6 +146,7 @@ function getSimilarityStory() {
 
 function init() {
     $('#sbtn').onclick = function(){submit();};
+    $('#logo').onclick = function(){window.location.href='/static/select.html';};
     document.addEventListener("keyup", function(event) {
         if (event.key === 'Enter') {
             submit();

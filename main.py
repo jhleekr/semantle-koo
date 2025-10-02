@@ -6,6 +6,7 @@ import pickle
 import random
 from fastapi.staticfiles import StaticFiles
 import os
+import logging
 
 import word2vec
 from process_similar import get_nearest
@@ -15,6 +16,7 @@ from database import engine, SessionLocal, Base
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(openapi_url=None, docs_url=None, redoc_url=None)
+gunicorn_logger = logging.getLogger("gunicorn.error")
 
 with open('data/valid_nearest.dat', 'rb') as f:
     valid_nearest_words, valid_nearest_vecs = pickle.load(f)
@@ -32,11 +34,16 @@ def get_db():
         db.close()
 
 
-def deletedb(db: Session, sid: str):
-    time.sleep(43200)
+def deletedb(sid: str):
+    gunicorn_logger.info(f"[{sid}] Session Generated")
+    time.sleep(45000)
+    gunicorn_logger.info(f"[{sid}] Session Expired")
+    db = SessionLocal()
     ans = crud.d_get(db, sid).data
     crud.d_delete(db, sid)
     os.remove(f"data/near/{ans}.dat")
+    db.close()
+    gunicorn_logger.info(f"[{sid}] Session Deleted")
 
 
 @app.get("/")
@@ -56,7 +63,7 @@ def start(request: Request, background_tasks: BackgroundTasks, db: Session = Dep
         sid = crud.d_new(db)
         w = random.choice(words)
         crud.d_modify(db, sid, w)
-        background_tasks.add_task(deletedb, db, sid)
+        background_tasks.add_task(deletedb, sid)
     ans = crud.d_get(db, sid).data
     nearests = get_nearest(ans, ans, valid_nearest_words, valid_nearest_vecs) #just generate
     return JSONResponse({"sess": sid})
@@ -146,3 +153,7 @@ def near1k(request: Request, db: Session = Depends(get_db)):
     ans = crud.d_get(db, sid).data
     return JSONResponse(get_nearest(ans, ans, valid_nearest_words, valid_nearest_vecs))
 
+
+@app.get('/favicon.ico')
+def favicon():
+    return RedirectResponse("https://www.bfy.kr/files/2020/08/cropped-BFY_LOGO_BIG-32x32.png")

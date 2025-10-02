@@ -17,7 +17,7 @@ function init() {
             var instr = '';
             for (var key in res) {
                 if (res[key][1]==1) {
-                    instr = `<div>정답은 ${key}입니다. 가장 유사한 단어는 다음과 같습니다:</div> \
+                    instr = `<div>정답은 ${key}입니다. 가장 유사한 단어는 다음과 같습니다:</div>
                     <table><tbody><tr><th>유사도 순위</th><th>단어</th><th>유사도</th></tr>`;
                 } else {
                     instr += `<tr><td>${res[key][0]}</td><td>${key}</td><td>${res[key][1]}</td></th>`;
